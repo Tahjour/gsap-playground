@@ -1,15 +1,25 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
+/**
+ * GsapTimeline Component
+ * 
+ * This component demonstrates the usage of GSAP timeline for creating
+ * complex, sequenced animations. It animates a yellow box through
+ * various transformations in a repeating cycle.
+ * 
+ * @returns {JSX.Element} The rendered GsapTimeline component
+ */
 const GsapTimeline = () => {
-  // TODO: Implement the gsap timeline
+  // Create a GSAP timeline with repeat and yoyo effect
   const timeline = gsap.timeline({
-    repeat: -1,
+    repeat: -1, // Infinite repeat
     repeatDelay: 1,
-    yoyo: true,
+    yoyo: true, // Reverse the animation on alternate cycles
   });
 
   useGSAP(() => {
+    // First animation: Move right and rotate
     timeline.to("#yellow-box", {
       x: 250,
       rotation: 360,
@@ -18,6 +28,7 @@ const GsapTimeline = () => {
       ease: "power1.inOut",
     });
 
+    // Second animation: Move down, scale up, and rotate
     timeline.to("#yellow-box", {
       y: 100,
       scale: 1.5,
@@ -27,6 +38,7 @@ const GsapTimeline = () => {
       ease: "back.inOut",
     });
 
+    // Third animation: Move further right and change shape
     timeline.to("#yellow-box", {
       x: 500,
       rotation: 360,
@@ -39,6 +51,8 @@ const GsapTimeline = () => {
   return (
     <main>
       <h1>GsapTimeline</h1>
+
+      {/* Explanatory text about GSAP timeline */}
 
       <p className="mt-5 text-gray-500">
         The <code>gsap.timeline()</code> method is used to create a timeline instance that can be
@@ -68,8 +82,16 @@ const GsapTimeline = () => {
       </p>
 
       <div className="mt-20 space-y-10">
-        <button onClick={() => {}}>Play/Pause</button>
+        {/* Play/Pause button for the animation */}
+        <button
+          onClick={() => {
+            timeline.paused() ? timeline.play() : timeline.pause();
+          }}
+        >
+          Play/Pause
+        </button>
 
+        {/* The animated yellow box */}
         <div id="yellow-box" className="w-20 h-20 bg-yellow-500 rounded-lg" />
       </div>
     </main>
