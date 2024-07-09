@@ -1,20 +1,25 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
 const GsapTo = () => {
   // TODO: Implement the gsap.to() method
+  useGSAP(() => {
+    gsap.to("#blue-box", { x: 250, repeat: -1, yoyo: true, duration: 2 });
+  }, []);
 
   return (
     <main>
       <h1>GsapTo</h1>
 
       <p className="mt-5 text-gray-500">
-        The <code>gsap.to()</code> method is used to animate elements from their
-        current state to a new state.
+        The <code>gsap.to()</code> method is used to animate elements from their current state to a
+        new state.
       </p>
       <p className="mt-5 text-gray-500">
-        The <code>gsap.to()</code> method is similar to the{" "}
-        <code>gsap.from()</code> method, but the difference is that the{" "}
-        <code>gsap.to()</code> method animates elements from their current state
-        to a new state, while the <code>gsap.from()</code> method animates
-        elements from a new state to their current state.
+        The <code>gsap.to()</code> method is similar to the <code>gsap.from()</code> method, but the
+        difference is that the <code>gsap.to()</code> method animates elements from their current
+        state to a new state, while the <code>gsap.from()</code> method animates elements from a new
+        state to their current state.
       </p>
 
       <p className="mt-5 text-gray-500">
