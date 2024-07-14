@@ -1,21 +1,24 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
+/**
+ * GsapStagger Component
+ * This component demonstrates the use of GSAP's stagger feature to animate a group of elements.
+ */
 const GsapStagger = () => {
-  // TODO: Implement the gsap.stagger() method
-
+  // Use the useGSAP hook to apply animations when the component mounts
   useGSAP(() => {
     gsap.to(".stagger-box", {
-      y: 100,
-      rotation: 360,
-      borderRadius: "100%",
-      repeat: -1,
-      yoyo: true,
-      ease: "power1.inOut",
+      y: 100, // Move elements 100px along the y-axis
+      rotation: 360, // Rotate elements 360 degrees
+      borderRadius: "100%", // Make elements fully rounded
+      repeat: -1, // Repeat the animation indefinitely
+      yoyo: true, // Reverse the animation on every alternate iteration
+      ease: "power1.inOut", // Apply easing for smooth animation
       stagger: {
-        each: 0.1,
-        from: "center",
-        grid: "auto",
+        each: 0.1, // Stagger the start of each animation by 0.1 seconds
+        from: "center", // Start staggering from the center of the group
+        grid: "auto", // Automatically arrange elements in a grid
       },
     });
   }, []);
@@ -50,6 +53,7 @@ const GsapStagger = () => {
 
       <div className="mt-20">
         <div className="flex gap-5">
+          {/* Elements to be animated with GSAP stagger */}
           <div className="w-20 h-20 bg-indigo-200 rounded-lg stagger-box" />
           <div className="w-20 h-20 bg-indigo-300 rounded-lg stagger-box" />
           <div className="w-20 h-20 bg-indigo-400 rounded-lg stagger-box" />
